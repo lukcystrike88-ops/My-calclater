@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多機能計算ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="menu" class="page active">
+        <h1>計算メニュー</h1>
+        <button class="menu-btn" onclick="showPage('price-comp')">価格比較 (A vs B)</button>
+        <button class="menu-btn" onclick="showPage('unit-price')">単価計算 (1個あたり)</button>
+        <button class="menu-btn" onclick="showPage('speed-calc')">速度・単位変換</button>
+        <button class="menu-btn" onclick="showPage('split-bill')">割り勘計算</button>
+        <button class="menu-btn" onclick="showPage('discount')">割引計算 (逆算あり)</button>
+    </div>
+
+    <div id="price-comp" class="page">
+        <h2>価格比較</h2>
+        <div class="input-group">
+            <p>商品A</p>
+            <input type="number" id="p1-price" placeholder="金額 (円)">
+            <input type="number" id="p1-qty" placeholder="容量 (g/mlなど)">
+        </div>
+        <div class="input-group">
+            <p>商品B</p>
+            <input type="number" id="p2-price" placeholder="金額 (円)">
+            <input type="number" id="p2-qty" placeholder="容量 (g/mlなど)">
+        </div>
+        <div class="result-area" id="res-comp">どちらがお得か比較します</div>
+        <button class="calc-btn" onclick="calcComparison()">比較する</button>
+        <button class="back-btn" onclick="showPage('menu')">戻る</button>
+    </div>
+
+    <div id="unit-price" class="page">
+        <h2>単価計算</h2>
+        <input type="number" id="u-total-price" placeholder="合計金額 (円)">
+        <input type="number" id="u-count" placeholder="個数・内容量">
+        <div class="result-area" id="res-unit">1個あたりの価格を表示します</div>
+        <button class="calc-btn" onclick="calcUnitPrice()">計算する</button>
+        <button class="back-btn" onclick="showPage('menu')">戻る</button>
+    </div>
+
+    <div id="speed-calc" class="page">
+        <h2>速度・単位変換</h2>
+        <p>※必要な項目を入力して計算してください</p>
+        <input type="number" id="s-dist" placeholder="距離 (m)">
+        <input type="number" id="s-time" placeholder="時間 (秒)">
+        <div class="result-area" id="res-speed">速度・距離・時間を算出します</div>
+        <button class="calc-btn" onclick="calcSpeed()">計算する</button>
+        <button class="back-btn" onclick="showPage('menu')">戻る</button>
+    </div>
+
+    <div id="split-bill" class="page">
+        <h2>割り勘計算</h2>
+        <input type="number" id="sb-total" placeholder="合計金額 (円)">
+        <input type="number" id="sb-num" placeholder="人数 (人)">
+        <input type="number" id="sb-special" placeholder="多めに払う人の合計額 (任意)">
+        <div class="result-area" id="res-split">1人あたりの支払額を表示します</div>
+        <button class="calc-btn" onclick="calcSplit()">計算する</button>
+        <button class="back-btn" onclick="showPage('menu')">戻る</button>
+    </div>
+
+    <div id="discount" class="page">
+        <h2>割引計算</h2>
+        <input type="number" id="d-price" placeholder="金額 (円)">
+        <input type="number" id="d-rate" placeholder="割引率 (%)">
+        <div class="result-area" id="res-discount">割引後の価格、または元値を計算</div>
+        <button class="calc-btn" onclick="calcDiscount()">割引後を計算</button>
+        <button class="calc-btn" style="background:#e67e22" onclick="calcOriginalPrice()">割引前から元値を計算</button>
+        <button class="back-btn" onclick="showPage('menu')">戻る</button>
+    </div>
+
+    <script src="app.js"></script>
+<script src="calc-price.js"></script>
+<script src="calc-speed.js"></script>
+<script src="calc-split.js"></script> <script src="calc-discount.js"></script>
+
+</body>
+</html>
