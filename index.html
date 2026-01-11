@@ -54,10 +54,14 @@
     </div>
 
     <div id="split-bill" class="page">
-        <h2>割り勘計算</h2>
-        <input type="number" id="sb-total" placeholder="合計金額 (円)">
-        <input type="number" id="sb-num" placeholder="人数 (人)">
-        <input type="number" id="sb-special" placeholder="多めに払う人の合計額 (任意)">
+        <h2>割り勘計算</h2><input type="number" id="sb-total" placeholder="合計金額 (円)">
+<input type="number" id="sb-num" placeholder="全体の人数 (人)">
+<hr>
+<p style="font-size: 0.8em; color: #666;">【特定の支払いの設定】</p>
+<input type="number" id="sb-special-amount" placeholder="先に払った額の合計 (円)">
+<input type="number" id="sb-special-num" placeholder="先に払った人の人数 (人)">
+
+
         <div class="result-area" id="res-split">1人あたりの支払額を表示します</div>
         <button class="calc-btn" onclick="calcSplit()">計算する</button>
         <button class="back-btn" onclick="showPage('menu')">戻る</button>
